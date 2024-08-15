@@ -25,7 +25,7 @@ wp.blocks.registerBlockType('brad/border-box', {
         </div>;
     },
     save: function(props) {
-        let newmessage = "";
+        let newMessage = "";
         let messages = [];
         async function submit(){
             // send message to server
@@ -42,7 +42,7 @@ wp.blocks.registerBlockType('brad/border-box', {
                 </p>
                 }
             </div>
-            <textarea value={newmessage}></textarea>
+            <textarea value={newMessage}></textarea>
             <button onSubmit={submit}>Submit</button>
         </div>;
     }
