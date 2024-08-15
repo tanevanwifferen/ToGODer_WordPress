@@ -8,7 +8,7 @@ function togoder_register_custom_api_endpoints()
     register_rest_route('togoder/v1', '/send_message', array(
         'methods' => 'POST',
         'callback' => 'togoder_post_message',
-        'permission_callback' => 'can_access_custom_settings'
+        'permission_callback' => 'togoder_is_logged_in'
     )
     );
 }
@@ -21,7 +21,7 @@ function togoder_post_message(WP_REST_Request $request)
     return $core->get_message($messages);
 }
 
-function can_access_custom_settings()
+function togoder_is_logged_in()
 {
     return !empty(wp_get_current_user());
 }

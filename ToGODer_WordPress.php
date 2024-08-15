@@ -37,3 +37,14 @@ register_activation_hook(
 	__FILE__,
 	'togoder_activate_plugin'
 );
+
+function loadMyBlock() {
+    wp_enqueue_script(
+        'togoder_chat',
+        plugin_dir_url(__FILE__) .  'chat_block/test-block.js',
+        array('wp-blocks','wp-editor'),
+        true
+    );
+}
+
+add_action('enqueue_block_editor_assets', 'loadMyBlock');
